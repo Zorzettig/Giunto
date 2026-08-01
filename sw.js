@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sei-giunto-v1';
+const CACHE_NAME = 'sei-giunto-v2';
 const urlsToCache = [
   './',
   './index.html',
@@ -8,6 +8,7 @@ const urlsToCache = [
   './js/ui.js',
   './js/pdfService.js',
   './manifest.json',
+  './icon.jpg',
   'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap',
   'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js'
 ];
