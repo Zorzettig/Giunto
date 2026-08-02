@@ -1,5 +1,6 @@
 export const state = {
   moduliSalvati: [],
+  savedPDC: '',
   
   init() {
     this.loadFromStorage();
@@ -7,6 +8,7 @@ export const state = {
 
   loadFromStorage() {
     const saved = localStorage.getItem('moduli_sei_giunto');
+    const savedPdcValue = localStorage.getItem('pdc_sei_giunto');
     if (saved) {
       try {
         this.moduliSalvati = JSON.parse(saved);
@@ -15,10 +17,18 @@ export const state = {
         this.moduliSalvati = [];
       }
     }
+    if (savedPdcValue) {
+      this.savedPDC = savedPdcValue;
+    }
   },
 
   saveToStorage() {
     localStorage.setItem('moduli_sei_giunto', JSON.stringify(this.moduliSalvati));
+  },
+
+  savePDC(pdcValue) {
+    this.savedPDC = pdcValue;
+    localStorage.setItem('pdc_sei_giunto', pdcValue);
   },
 
   addModulo(moduloTesto) {

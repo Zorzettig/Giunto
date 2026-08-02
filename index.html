@@ -52,7 +52,7 @@
         </div>
 
         <div class="form-row">
-            <div class="input-group" style="flex: 0.8;">
+            <div class="input-group" style="flex: 1.1;">
                 <label>Ruolo</label>
                 <select id="tipoRuolo">
                     <option value="DCO">DCO</option>
@@ -131,7 +131,10 @@
         <div class="form-row" style="margin-bottom: 24px;">
             <div class="input-group">
                 <label>PDC</label>
-                <input type="text" id="pdc" value="Zorzettig">
+                <div class="flex gap-2 w-full items-center">
+                    <input type="text" id="pdc" style="flex: 1;">
+                    <button onclick="memorizzaPDC()" class="btn btn-secondary" style="height: 44px; font-size: 0.75rem; white-space: nowrap;">Memorizza PDC</button>
+                </div>
             </div>
         </div>
 

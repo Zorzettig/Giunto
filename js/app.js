@@ -7,6 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
   state.init();
   ui.init();
   
+  if (state.savedPDC) {
+    const pdcElement = document.getElementById('pdc');
+    if (pdcElement) pdcElement.value = state.savedPDC;
+  }
+  
   // Register Service Worker for PWA
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
@@ -41,7 +46,7 @@ window.salvaModulo = () => {
   const saltDCO = document.getElementById('saltDCO').value || '___';
   const firma = document.getElementById('firma').value || '______';
   const ora = document.getElementById('ora').value || '___';
-  const pdcValore = document.getElementById('pdc').value || 'Zorzettig';
+  const pdcValore = document.getElementById('pdc').value || '______';
 
   const dataOggiStr = ui.updateDate();
 
@@ -76,3 +81,14 @@ window.confermaSvuotaMemoria = () => {
 };
 window.scaricaPDF = () => pdfService.scaricaPDF();
 window.condividi = () => pdfService.condividi();
+
+window.memorizzaPDC = () => {
+  const pdcInput = document.getElementById('pdc');
+  const val = pdcInput ? pdcInput.value.trim() : '';
+  if (val) {
+    state.savePDC(val);
+    ui.mostraToast("PDC Memorizzato!");
+  } else {
+    ui.mostraToast("Inserisci un PDC!");
+  }
+};
